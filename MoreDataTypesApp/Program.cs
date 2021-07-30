@@ -47,6 +47,10 @@ namespace MoreDataTypesApp
             var index = result.IndexOf('N');
             result = result.Remove(index + 1);
 
+            //I'm only adding a line of code here to test if I can have the repo in both computers
+            //and that it won't result in any issues.
+
+
             return result;
         }
     }
