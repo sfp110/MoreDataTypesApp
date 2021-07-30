@@ -35,15 +35,19 @@ namespace MoreDataTypesApp
             //        break;
             //}
 
-            var trimmedString = myString.Trim();
-            var ucString = trimmedString.ToUpper();
-            var replacedString = ucString.Replace('L', '*');
-            var replacedString2 = replacedString.Replace('T', '*');
-            var nPos = replacedString2.IndexOf('N');
-            var finalString = replacedString2.Remove(nPos + 1);
-            return finalString;
+            //var trimmedString = myString.Trim();
+            //var ucString = trimmedString.ToUpper();
+            //var replacedString = ucString.Replace('L', '*');
+            //var replacedString2 = replacedString.Replace('T', '*');
+            //var nPos = replacedString2.IndexOf('N');
+            //var finalString = replacedString2.Remove(nPos + 1);
+            //return finalString;
 
-            //return result;
+            var result = myString.Trim().ToUpper().Replace('L', '*').Replace('T', '*');
+            var index = result.IndexOf('N');
+            result = result.Remove(index + 1);
+
+            return result;
         }
     }
 }
