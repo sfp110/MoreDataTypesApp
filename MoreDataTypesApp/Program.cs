@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace MoreDataTypesApp
 {
@@ -52,6 +53,18 @@ namespace MoreDataTypesApp
 
 
             return result;
+        }
+
+        public static string StringBuilderExercise(string myString)
+        {
+            var trimmedUpperString = myString.Trim().ToUpper();
+            var pos = trimmedUpperString.IndexOf('N');
+
+            StringBuilder sb = new StringBuilder(trimmedUpperString);
+
+            sb.Replace('L', '*').Replace('T', '*').Remove(pos + 1, (sb.Length - pos - 1));
+
+            return sb.ToString();
         }
     }
 }
