@@ -7,9 +7,116 @@ namespace MoreDataTypesApp
     {
         static void Main(string[] args)
         {
+            //MultiDimensionsArray();
+
+            JaggedArray();
+
+            int[] myIntArray = { 12, 23, 34, 45, 56 };
+
+            Array.Reverse<int>(myIntArray);
+
+            foreach(var element in myIntArray)
+            {
+                Console.WriteLine(element);
+            }
+
+            //------------------------------------------------------
+            Console.WriteLine("How many apples");
+            string input = Console.ReadLine();
+
+            //int numApples = Int32.Parse(input);
+
+
+            var success = (Int32.TryParse(input, out int parsedApples));
+
+            //Console.WriteLine(parsedApples);
+
+            //------------------------------------------------------
             int typeOfSpecification = 1;
             var myString = " C# list fundamentals ";
-            Console.WriteLine(StringExercise(myString, typeOfSpecification));
+            //Console.WriteLine(StringExercise(myString, typeOfSpecification));
+            StringInterpolation("Sergio");
+
+            var num1 = 2;
+            var num2 = 7;
+
+            var fString = $"{num1} to the power of {num2} is {Math.Pow(num1, num2)}";
+
+            var fString2 = $"Log to the base {num2} of {num1} is {Math.Log(num2, num1):0.####}";
+            var fString3 = $"That will be {num2 / 3.0:C} please!";
+
+           //------------------------------------------------------
+        }
+
+        public static void MultiDimensionsArray()
+        {
+            int[,] grid = new int[2, 4];
+            grid[0, 1] = 6;
+            grid[1, 3] = 8;
+            grid[1, 3] = 10;
+
+            //Rows first 
+
+            //4 rows , 2 columns
+
+            char[,] gridTwo = { {'a','b',},
+                                {'c','d',},
+                                {'e', 'f'},
+                                {'g','h' }};
+
+            foreach(var element in gridTwo)
+            {
+                Console.WriteLine(element);
+            }
+
+            for(int i = gridTwo.GetLowerBound(0); i<= gridTwo.GetUpperBound(0);i++)
+            {
+                for(int j = gridTwo.GetLowerBound(1); j<= gridTwo.GetUpperBound(1); j++)
+                {
+                    Console.Write($"({i},{j}) {gridTwo[i, j]} ");
+                }
+                Console.WriteLine();
+            }
+
+        }
+
+        public static void JaggedArray()
+        {
+            //arrow first, columns after
+            int[][] intJArray = new int[2][];
+            intJArray[0] = new int[4];
+            intJArray[1] = new int[2];
+
+            intJArray[0][2] = 3;
+            intJArray[1][0] = 5;
+
+            string[][] animalJArray = new string[][]
+            {
+                new string[] {"llama","puma","horse","kitchen"},
+                new string[] {"haddock", "tuna" }
+            }; // 2 rows, the first with 4 columns, the second with 2 columns
+
+
+            Console.WriteLine("Jagged array of animals");
+            foreach(var row in animalJArray)
+            {
+                foreach(var entry in row)
+                {
+                    Console.WriteLine($"{entry}");
+                }
+            }
+            
+
+        }
+
+        public static void StringInterpolation(string str)
+        {
+            //Concatonation
+            Console.WriteLine("My name is : " + str + " using concatenation (+)");
+
+            //Interpolation
+            Console.WriteLine($"My name is : {str} using interpolation");
+
         }
 
         public static string StringExercise(String myString, int typeOfSpecification)
